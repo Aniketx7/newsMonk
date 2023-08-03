@@ -32,7 +32,84 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+
+
+
+/* styling for cards badges  */
+.translate-middle {
+  transform: translate(-87%, -50%) !important;    
+}
+
+/* For card description */
+p.card-text.description {
+  height: 6.2rem;
+  overflow: hidden;
+  margin: 4px
+}
+
+
+/* Cards styling */
+.card {
+  border: none;
+  background: white;
+  box-shadow: 2px 2px 12px 1px #00000017;
+  margin: 1rem;
+}
+
+/* Author anme and date styling */
+.date{
+  margin-left: 14.5px;
+  /* margin: 0px 0px 5px 12px */
+}
+
+
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 100%;
+  /* height: 200px; */
+  object-fit: cover;
+}
+
+
+.read-more {
+  margin: 15px;
+  width: 116px;
+}
+
+/*.card-body {
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  height: 217px;
+  overflow: hidden;
+} */
+
+.card-img-top {
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.card-img-top:hover {
+  transition: all ease-in-out 0.5s;
+}
+
+.card-img-container {
+  height: 200px;
+
+}
+
+
+
+.infinite-scroll-component {
+  overflow: none !important;
 }

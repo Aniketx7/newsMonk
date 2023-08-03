@@ -1,0 +1,41 @@
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
+export class Navbar extends Component {
+  render() {
+    let {query} = this.props
+
+    return (
+      <>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <div className="container-fluid">
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item"><a className="nav-link active" aria-current="page" href="/">Home</a></li>
+
+
+                <Link className="nav-link" to="/">general</Link>
+                <Link className="nav-link" to="/business">business</Link>
+                <Link className="nav-link" to="/entertainment">entertainment</Link>
+                <Link className="nav-link" to="/health">health</Link>
+                <Link className="nav-link" to="/science">science</Link>
+                <Link className="nav-link" to="/sports">sports</Link>
+                <Link className="nav-link" to="/technology">technology</Link>
+              </ul>
+              <form className="d-flex" role="search">
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                {/* <button className="btn btn-outline-success"  onClick={query}>Search</button> */}
+                <Link to="/" onClick={query}>Search</Link>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </>
+    )
+  }
+}
+
+export default Navbar
