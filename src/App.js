@@ -1,7 +1,7 @@
 import './App.css';
 
 
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Navbar from './component/Navbar';
 import News from './component/News';
 import LoadingBar from 'react-top-loading-bar'
@@ -12,49 +12,49 @@ import {
   Route,
 } from 'react-router-dom'
 
-export default class App extends Component {
+const App = () =>{
 
-  APIkey = process.env.REACT_APP_API_KEY   //we can access secret key from .env.local as process.env.
+  const APIkey = process.env.REACT_APP_API_KEY   //we can access secret key from .env.local as process.env.
 
-  state = {
-    progress: 0,
-  }
+  const [progress, setProgress] = useState(0)
+  
+  // state = {
+  //   progress: 0,
+  // }
 
 
-  setProgress = (progress) => {
-     this.setState ({
-      progress: progress
-    })
-    console.log(this.state.progress)
-  }
-  render() {
+  // setProgress = (progress) => {
+  //   this.setState({
+  //     progress: progress
+  //   })
+  //   console.log(this.state.progress)
+  // }
 
     return (
       <>
         <Router>
           <Navbar />
-          
+
           <LoadingBar
             color='#f11946'
-            progress={this.state.progress}
-            onLoaderFinished={() => this.setProgress(0)}
+            progress={progress}
+            onLoaderFinished={() =>setProgress(0)}
           />
           <Routes>
-            <Route exact path='/newsMonk' element={[<News setProgress={this.setProgress} myAPI={this.APIkey} key="general" country='in' category="general" />]} />
-            <Route exact path='/' element={[<News setProgress={this.setProgress} myAPI={this.APIkey} key="general" country='in' category="general" />]} />
-            <Route exact path='/business' element={[<News setProgress={this.setProgress} myAPI={this.APIkey} key="business" country='in' category="business" />]} />
-            <Route exact path='/entertainment' element={<News setProgress={this.setProgress} myAPI={this.APIkey} key="entertainment" country='in' category="entertainment" />} />
-            <Route exact path='/health' element={[<News setProgress={this.setProgress} myAPI={this.APIkey} key="health" country='in' category="health" />]} />
-            <Route exact path='/science' element={[<News setProgress={this.setProgress} myAPI={this.APIkey} key="science" country='in' category="science" />]} />
-            <Route exact path='/sports' element={[<News setProgress={this.setProgress} myAPI={this.APIkey} key="sports" country='in' category="sports" />]} />
-            <Route exact path='/technology' element={[<News setProgress={this.setProgress} myAPI={this.APIkey} key="technology" country='in' category="technology" />]} />
+            <Route exact path='/newsMonk' element={[<News setProgress={setProgress} myAPI={APIkey} key="general" country='in' category="general" />]} />
+            <Route exact path='/' element={[<News setProgress={setProgress} myAPI={APIkey} key="general" country='in' category="general" />]} />
+            <Route exact path='/business' element={[<News setProgress={setProgress} myAPI={APIkey} key="business" country='in' category="business" />]} />
+            <Route exact path='/entertainment' element={<News setProgress={setProgress} myAPI={APIkey} key="entertainment" country='in' category="entertainment" />} />
+            <Route exact path='/health' element={[<News setProgress={setProgress} myAPI={APIkey} key="health" country='in' category="health" />]} />
+            <Route exact path='/science' element={[<News setProgress={setProgress} myAPI={APIkey} key="science" country='in' category="science" />]} />
+            <Route exact path='/sports' element={[<News setProgress={setProgress} myAPI={APIkey} key="sports" country='in' category="sports" />]} />
+            <Route exact path='/technology' element={[<News setProgress={setProgress} myAPI={APIkey} key="technology" country='in' category="technology" />]} />
 
             {/* <Route exact path="/about" element={[<About />]} /> */}
           </Routes>
         </Router>
       </>
     )
-  }
 }
 
 
@@ -71,3 +71,5 @@ export default class App extends Component {
  *  
  * 
  */
+
+export default App
