@@ -21,7 +21,7 @@ const App = () =>{
   // state = {
   //   progress: 0,
   // }
-
+//rea
 
   // setProgress = (progress) => {
   //   this.setState({
